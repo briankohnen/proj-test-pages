@@ -1,26 +1,79 @@
+@keyframes animateFooterOpen {
+   0% {
+      height: 50px;
+   }
+   100% {
+      height:100vh;
+   }
+}
+
+@keyframes animateFooterClosed {
+   0% {
+      height:100vh;
+   }
+   1000% {
+      height: 50px;
+   }
+}
+
+h3 {
+   text-align: center;
+   font-size: 25px;
+   color: #edf5e1;
+   font-weight: bold;
+}
+
+.fixed-footer {
+   background-color: #003b46;
+   color:black;
+   position: fixed;
+   bottom: 0;
+   width: 100vw;
+   height: 50px;
+   text-align: center;
+}
+
+.animate-footer-open {
+  animation: animateFooterOpen 3s forwards;
+}
+
+.animate-footer-close {
+   animation: animateFooterClosed 3s forwards;
+ }
 body {
-   background-color: #2c3531;
+   background-color: #003b46;
    
 }
 
 h1 {
     text-align:center;
-    font-family: 'Abril Fatface', cursive;
    font-size: 55px;
    margin-top: 0px;
+   color: white;
+   font-family: 'Archivo Black', sans-serif;
+
+
+ }
+
+ .headerPhoto {
+   color: #def2f1;
+   font-family: 'Abril Fatface', cursive;
+   background-size: auto;
 
 
  }
  .gridContainer {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 250px 250px;
+    display:flex;
+    flex-direction:row;
 }
 
+#copyright {
+   margin-top: 50px;
 
+}
 
-input[type=text] {
-   width: 100px;
+ input[type=text] {
+   width: 30px;
    box-sizing: border-box;
    border: 2px solid #ccc;
    border-radius: 4px;
@@ -30,67 +83,73 @@ input[type=text] {
    background-position: 10px 10px; 
    background-repeat: no-repeat;
    padding: 12px 20px 12px 40px;
-   -webkit-transition: width 0.4s ease-in-out;
-   transition: width 0.4s ease-in-out;
-   width: 30%;
+   /* -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out; */
+   width: 30%; 
  }
 
  input[type=text]:focus {
-   width: 100%;
+   /* width: 100%; */
  }
  .eventContainer{
    background-color: #D9b08c;
-   width: 33%;
+   /* width: 33%;
    height: 800px;
-   color: black;
    grid-column: 1 / 4;
-   grid-row: 1 / 3;
+   grid-row: 1 / 3; */
+   flex-basis: 33%;
+   height:800px;
+   color: black;
    overflow-y: scroll;
   border-radius: 25px;
   background-position: left top;
   background-repeat: repeat;
   font-family: 'Bree Serif', serif;
-  margin: 5px;
-
+  margin-top: 15px;
+  
  }
  form {
     text-align: right;
  }
  .mapPlacement {
-     grid-column: 2 / 4;
+     /* grid-column: 2 / 4;
      grid-row: 1 / 3;
-     height: 800px;
+     height: 800px; */
+      height:800px;     
+     flex-basis: 66%;
      margin-bottom: 65px;
+     margin-top: 15px;
      margin-left: 15px;
-
+     -moz-border-radius: 20px;
+-webkit-border-radius: 20px;
+border-radius: 20px; /* future proofing */
+-khtml-border-radius: 20px;
  }
  .eventNearMe:hover {
     background: gray
  }
-
  .modal {
    display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
    z-index: 1; /* Sit on top */
-   padding-top: 100px; /* Location of the box */
-   left: 0;
-   top: 0;
    width: 100%; /* Full width */
    height: 100%; /* Full height */
    overflow: auto; /* Enable scroll if needed */
    background-color: rgb(0,0,0); /* Fallback color */
    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   font-family: 'Bree Serif', serif;
+
  }
  
  /* Modal Content */
  .modal-content {
-   background-color: #fefefe;
+   background-color: #d1d7e0;
    margin: auto;
    padding: 20px;
    border: 1px solid #888;
    width: 50%;
    max-height: 400px;
    overflow-y: scroll;
+   font-size: 15px;
  }
  
  /* The Close Button */
@@ -115,9 +174,9 @@ input[type=text] {
  }
 #eventDisplay {
    height: 200px;
-   width: 200px;
+   width: 250px;
+   margin-top: 15px;
 }
-
 
 #submitButton {
 background: #B9DFFF;
@@ -126,32 +185,25 @@ border: 10px solid #eee;
 border-radius: 20px;
 text-shadow:none;
 position: inline;
-
+margin-top: 10px;
 }
 
 #submitButton:hover {
-
 background: #016ABC;
-
 color: #fff;
-
 border: 10px solid #eee;
-
 border-radius: 20px;
-
 /* box-shadow: 5px 5px 5px #eee; */
 
 text-shadow:none;
 
 }
-
 .headerPhoto {
    width: 100%;
     height:340px;  
-   opacity: .5;
+   opacity: .8;
    background-image: url("HeaderPhoto.jpg")
 }
-
 
 @media screen and (max-width: 980px) {
    input[type=text] {
@@ -169,25 +221,35 @@ text-shadow:none;
 
 @media screen and (max-width: 640px){
    .searchBar {
-      position: center;
+      /* position: center; */
       width: 100%;
    }
    .mapPlacement{
-
+      flex-basis: 100%
+   }
+   .eventContainer{
+      flex-basis: 100%
+   }
+   .gridContainer {
+      flex-wrap: wrap-reverse
    }
 
 } 
 
+.searchBar {
+   margin-bottom: 5px;
+   text-align: center;
+   
 
+}
 
-.fixed-footer {
-   background-color: #2c3531;
-   color:black;
-   position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 50px;
-  text-align: center;
+.searchBar input {
+   height: 50px;
+     width: 200px;
+}
+
+#submitButton {
+   margin-bottom:10px;
 }
 
 
