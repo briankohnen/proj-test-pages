@@ -47,7 +47,12 @@ function initialize_map(lat, long) {
     });
 
     map.addLayer(vectorLayer);
-    console.log(map.getView().getCenter());
+
+    hoverInteraction = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+        layers:[vectorLayer]  //Setting layers to be hovered
+    });
+    map.addInteraction(hoverInteraction);
 }
 
 function changeMapView(lat, long) {
@@ -74,6 +79,12 @@ function add_map_point(lat, lng) {
     });
 
     map.addLayer(vectorLayer);
+
+    hoverInteraction = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+        layers:[vectorLayer]  //Setting layers to be hovered
+    });
+    map.addInteraction(hoverInteraction);
 }
 
 navigator.geolocation.getCurrentPosition(function(position) {
