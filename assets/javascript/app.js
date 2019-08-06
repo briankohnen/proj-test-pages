@@ -11,16 +11,12 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-
 var myLat = 0;
 var myLong = 0;
-
-
 var map;
 var mapDefaultZoom = 12;
 
-
-
+//Using OpenLayers to add a map
 function initialize_map(lat, long) {
         map = new ol.Map({
         target: "map",
@@ -59,14 +55,10 @@ function initialize_map(lat, long) {
     map.addInteraction(hoverInteraction);
 }
 
-
-
 function changeMapView(lat, long) {
     map.getView().setCenter(ol.proj.transform([parseFloat(long), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857'));
     map.getView().setZoom(16);
     }
-
-
 
 function add_map_point(lat, lng) {
    
@@ -95,10 +87,6 @@ function add_map_point(lat, lng) {
     map.addInteraction(hoverInteraction);
 }
 
-
-
-
-
 navigator.geolocation.getCurrentPosition(function(position) {
     myLat = position.coords.latitude;
     myLong = position.coords.longitude;
@@ -109,8 +97,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
         initialize_map(41.895886, -87.62003)
     }
 });
-
-
 
     $("#submitButton").on("click", function() {
 
@@ -175,8 +161,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
     });
 
-
-
     $(document).on("click", ".eventNearMe", function () {
         var grabEventLong = $(this).attr("data-long");
 
@@ -230,6 +214,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
                     .addClass('animate-footer-close')
         }
 
+        //Changed chatbox to animate from the fixed footer
         window.onclick = function(event) {
             if (event.target == modal) {
                 $('.fixed-footer')
@@ -283,10 +268,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
             .addClass('animate-footer-open');
     });
 
-   
-
-
-    
     if (sessionStorage.getItem("username") == null) {
 
         var modal = document.getElementById("loginModal");
@@ -296,10 +277,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
         var userNameInput = document.getElementById("userNameInput");
 
         var login = document.getElementById("login");
-        
-        //var newUserInput = document.getElementById("newUserInput");
-
-        //var signup = document.getElementById("signup");
 
         modal.style.display = "block";
 
@@ -312,8 +289,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
                 modal.style.display = "none";
             }
         }
-      
-       
 
             login.onclick = function(event) {
 
@@ -341,7 +316,3 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
             }
     };
-
-
-
-  
