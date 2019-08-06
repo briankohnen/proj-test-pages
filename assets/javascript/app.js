@@ -158,7 +158,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
             eventLI.attr("data-long", eventCoords[0]);
             eventLI.attr("data-lat", eventCoords[1]);
 
-            var eventChatButton = $("<button>See what other users are saying</button>");
+            var eventChatButton = $("<button> Event Chat</button>");
             eventChatButton.attr("class", "openChat");
             eventChatButton.attr("data-attr", eventName);
             eventChatButton.attr("data-img", eventImg);
@@ -184,6 +184,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
         changeMapView(grabEventLat, grabEventLong);
     });
+    var isChatOpen = false
 
     $(document).on("click", ".openChat", function() {
 
@@ -208,7 +209,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
         var modal = document.getElementById("chatModal");
 
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.querySelector(".close");
 
         var chatContent = document.getElementById("chatContent");
 
@@ -224,13 +225,23 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
         span.onclick = function() {
             modal.style.display = "none";
+                    $('.fixed-footer')
+                    .removeClass('animate-footer-open')
+                    .addClass('animate-footer-close')
         }
 
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                $('.fixed-footer')
+                .removeClass('animate-footer-open')
+                .addClass('animate-footer-close')
+                setTimeout(()=>{
+                    modal.style.display = "none";
+
+                }, 3000)
             }
         }
+        
 
         database.ref("messaging" + cleanEventName).on("child_added", function(snapshot) {
 
@@ -266,7 +277,13 @@ navigator.geolocation.getCurrentPosition(function(position) {
                 userChatInput.value = "";
             }
         }
+
+            $('.fixed-footer')
+            .removeClass('animate-footer-close')
+            .addClass('animate-footer-open');
     });
+
+   
 
 
     
@@ -295,6 +312,8 @@ navigator.geolocation.getCurrentPosition(function(position) {
                 modal.style.display = "none";
             }
         }
+      
+       
 
             login.onclick = function(event) {
 
@@ -322,3 +341,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
             }
     };
+
+
+
+  

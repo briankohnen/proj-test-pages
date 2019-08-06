@@ -10,6 +10,9 @@
    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/style.css'>
    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Baloo|Fredoka+One&display=swap" rel="stylesheet">
 
    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,19 +21,30 @@
 </head>
 <body>
   <header>
-    <main> <div class="headerPhoto"><h1>MB Events</h1></div>
+    <main> <div class="headerPhoto"><h1>FOMO Events</h1> 
+       <h3>Find Events. Grab Tickets. Chat with others attending.</h3>
+      <form class="searchBar" id="styleBar" display="inline">
+          <input type="text" placeholder="Search a city..." class="search" name="search2" id="userCityInp">
+          
+          <input type="text" placeholder="Search by City or Keyword" class="search" id="userKeyWord">
+         <br>
+          <button type="submit" class="search" id="submitButton">submit</button>
+        </form>
+   
+    
+    </div>
     </main>
   </header>
 
   
 
-   <form class="searchBar" id="styleBar" display="inline">
+   <!-- <form class="searchBar" id="styleBar" display="inline">
        <input type="text" placeholder="Search a city..." class="search" name="search2" id="userCityInp">
        
        <input type="text" placeholder="Search by City or Keyword" class="search" id="userKeyWord">
       
        <button type="submit" id="submitButton">submit</button>
-     </form>
+     </form> -->
 
      <div class='gridContainer'>
 
@@ -42,6 +56,7 @@
       <div class="mapPlacement" id="map"></div>
 
     </div>
+
 
 
 
@@ -64,24 +79,42 @@
 
 <div id="loginModal" class="modal">
 
-  <div class="modal-content">
-    <h1 class="modal-title">Login or Sign-up!</h1>
-    <span class="close">&times;</span>
-      <form id="loginForm">
-        <input type="text" id="userNameInput" placeholder="enter your username"></input>
-        <button id="login">Login!</button>
-      </form>
-      <!-- <form id="signupForm">
-        <input type="text" id="newUserInput" placeholder="enter your username">
-        <button id="signup">Sign Up!</button>
-      </form> -->
-      <p id="nameTakenText"></p>
+    <div class="modal-content">
+      <h1 class="modal-title">Login or Sign-up!</h1>
+      <span class="close">&times;</span>
+        <form id="loginForm">
+          <input type="text" id="userNameInput" placeholder="enter your username"></input>
+          <button id="login">Login!</button>
+        </form>
+        <!-- <form id="signupForm">
+          <input type="text" id="newUserInput" placeholder="enter your username">
+          <button id="signup">Sign Up!</button>
+        </form> -->
+        <p id="nameTakenText"></p>
+    </div>
+  
   </div>
 
-</div>
 
 <div class="fixed-footer"> 
-   <div class="container">Copyright &copy; 2019 MB Events</div>        
+   <div class="container">
+     <span id="copyright">Copyright &copy; 2019 MB Events</span>
+      <!--Modal to pop-up for chat-->
+<div id="chatModal" class="modal">
+
+    <div class="modal-content">
+        <h1 id="modalTitle" class="modalTitle"></h1>
+        <span class="close">&times;</span>
+          <form id="chatForm">
+            <input type="text" id="userChatInput" class="chatInp"></input>
+            <button id="submitChat" class="chatSubmit">chat!</button>
+          </form>
+          <img id="eventDisplay" src=""></img>
+        <p id="chatContent"></p>
+    </div>
+  
+  </div>
+   </div>        
 </div>
 
 
