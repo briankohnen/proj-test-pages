@@ -158,6 +158,7 @@ border-radius: 20px; /* future proofing */
    float: right;
    font-size: 28px;
    font-weight: bold;
+   position: relative;
  }
  
  .close:hover,
