@@ -1,27 +1,36 @@
-@keyframes animateFooterOpen {
-   0% {
-      height: 50px;
-   }
-   100% {
-      height:100vh;
-   }
-}
-
-@keyframes animateFooterClosed {
-   0% {
-      height:100vh;
-   }
-   1000% {
-      height: 50px;
-   }
-}
-
 h3 {
    text-align: center;
    font-size: 25px;
-   color: #edf5e1;
+   color: black;
    font-weight: bold;
 }
+
+h4 {
+   font-family: 'Days One', sans-serif;
+   font-weight: 100;
+color: white;
+text-align: center;
+font-size: 35px;
+
+}
+
+.searchBar {
+   margin-bottom: 50px;
+   text-align: center;
+   
+
+}
+
+.searchBar input {
+   height: 50px;
+     width: 200px;
+}
+
+#submitButton {
+   margin-bottom:10px;
+}
+
+
 
 .fixed-footer {
    background-color: #003b46;
@@ -34,11 +43,11 @@ h3 {
 }
 
 .animate-footer-open {
-  animation: animateFooterOpen 3s forwards;
+  animation: animateFooterOpen 1.8s forwards;
 }
 
 .animate-footer-close {
-   animation: animateFooterClosed 3s forwards;
+   animation: animateFooterClosed 1.8s forwards;
  }
 body {
    background-color: #003b46;
@@ -46,11 +55,13 @@ body {
 }
 
 h1 {
+      font-family: 'Days One', sans-serif;
     text-align:center;
-   font-size: 55px;
+   font-size: 60px;
    margin-top: 0px;
    color: white;
-   font-family: 'Archivo Black', sans-serif;
+   /* font-family: 'Lalezar', cursive; */
+   filter: brightness(100%)
 
 
  }
@@ -59,6 +70,7 @@ h1 {
    color: #def2f1;
    font-family: 'Abril Fatface', cursive;
    background-size: auto;
+   opacity: 0.8;
 
 
  }
@@ -104,7 +116,9 @@ h1 {
   border-radius: 25px;
   background-position: left top;
   background-repeat: repeat;
-  font-family: 'Bree Serif', serif;
+  /* font-family: 'Bree Serif', serif; */
+  font-family: 'DM Serif Text', serif;
+
   margin-top: 15px;
   
  }
@@ -140,6 +154,14 @@ border-radius: 20px; /* future proofing */
 
  }
  
+#modalTitle {
+color: black;
+font-family: 'DM Serif Text', serif;
+
+}
+
+
+
  /* Modal Content */
  .modal-content {
    background-color: #d1d7e0;
@@ -205,6 +227,25 @@ text-shadow:none;
    background-image: url("HeaderPhoto.jpg")
 }
 
+
+@keyframes animateFooterOpen {
+   0% {
+      height: 50px;
+   }
+   100% {
+      height:100vh;
+   }
+}
+
+@keyframes animateFooterClosed {
+   0% {
+      height:100vh;
+   }
+   1000% {
+      height: 50px;
+   }
+}
+
 @media screen and (max-width: 980px) {
    input[type=text] {
       float: left;
@@ -221,26 +262,29 @@ text-shadow:none;
 
 @media screen and (max-width: 640px){
    .searchBar {
-      /* position: center; */
-      width: 100%;
+       position: center; 
+       width: 100%;
    }
    .mapPlacement{
-      flex-basis: 100%
+      flex-basis: 100%;
+     
    }
    .eventContainer{
-      flex-basis: 100%
+      flex-basis: 100%;
+      /* width: 100% */
    }
    .gridContainer {
       flex-wrap: wrap-reverse
+   }
+   .search {
+      float: left;
    }
 
 } 
 
 .searchBar {
-   margin-bottom: 5px;
+   margin-bottom: 50px;
    text-align: center;
-   
-
 }
 
 .searchBar input {
