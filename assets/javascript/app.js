@@ -201,8 +201,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
             }
             var cleanEventName = eventNameArray.join("");
         }
-
-        //console.log(cleanEventName);
+        
 
         var modalTitle = $(this).attr("data-attr");
 

@@ -3,7 +3,7 @@
 <head Access-Control-Allow-Origin: *>
    <meta charset='utf-8'>
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-   <title>Page Title</title>
+   <title>MBEvents</title>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
@@ -16,18 +16,26 @@
    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
 </head>
+
 <body>
+
   <header>
-    <main> <div class="headerPhoto"><h1>MB Events</h1></div>
+    <main> 
+      <div class="headerPhoto">
+        <h1>MB Events</h1>
+        <h3>Search your city and favorite genre of music, sports team, or venue to find upcoming events.
+          <br>
+          Connect with others going, too!
+        </h3>
+      </div>
     </main>
   </header>
 
-  
 
    <form class="searchBar" id="styleBar" display="inline">
        <input type="text" placeholder="Search a city..." class="search" name="search2" id="userCityInp">
        
-       <input type="text" placeholder="Search by City or Keyword" class="search" id="userKeyWord">
+       <input type="text" placeholder="Sports? Music? Venues?" class="search" id="userKeyWord">
       
        <button type="submit" id="submitButton">submit</button>
      </form>
@@ -49,14 +57,20 @@
 <div id="chatModal" class="modal">
 
   <div class="modal-content">
-      <span class="close">&times;</span>
-      <h1 id="modalTitle" class="modalTitle"></h1>
+
+    <div class="modalTitleDiv">
+        <span class="close">&times;</span>
+        <p id="modalTitle" class="modalTitle"></p>
+    </div>
+
+    <div class="chatModalContent">
         <form id="chatForm">
           <input type="text" id="userChatInput" class="chatInp"></input>
           <button id="submitChat" class="chatSubmit">chat!</button>
         </form>
         <img id="eventDisplay" src=""></img>
       <p id="chatContent"></p>
+    </div>
   </div>
 
 </div>
@@ -64,9 +78,11 @@
 
 <div id="loginModal" class="modal">
 
-  <div class="modal-content">
-    <h1 class="modal-title">Login or Sign-up!</h1>
-    <span class="close">&times;</span>
+  <div class="modal-content" id="loginModalContent">
+    <div class="modalTitleDiv">
+      <span class="close">&times;</span>
+      <p class="modal-title">Login or Sign-up!</p>
+    </div>
       <form id="loginForm">
         <input type="text" id="userNameInput" placeholder="enter your username"></input>
         <button id="login">Login!</button>
